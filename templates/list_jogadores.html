@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>List of Players</h2>
+<ul class="list-group">
+    {% for jogador in jogadores %}
+        <li class="list-group-item">
+            <img src="{{ url_for('static', filename='uploads/' ~ jogador.foto) }}" alt="Foto do Jogador" style="width: 50px; height: 50px; margin-right: 10px;">
+            {{ jogador.nome }} - {{ jogador.posicao }} - {{ jogador.numero }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

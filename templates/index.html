@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center">
+    <h2>Welcome to the Soccer Team Management System</h2>
+    <p>Use the navigation bar to manage teams and players.</p>
+</div>
+
+<style>
+
+    body {
+        background-image: url("{{ url_for('static', filename='images/bg_cartola_index.jpeg') }}");
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center; /* Centers the image */
+        height: 100vh; /* Sets the body height to full viewport height */
+        margin: 0; /* Removes default margin */
+    }
+
+    .text-center {
+        position: relative;
+        z-index: 1;
+        color: white; 
+        padding-top: 5%;
+    }
+
+    
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+        z-index: 0;
+    }
+
+</style>
+
+
+{% endblock %}
+

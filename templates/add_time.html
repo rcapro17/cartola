@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Time</h2>
+<form action="{{ url_for('add_time') }}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="nome_time">Nome do Time:</label>
+        <input type="text" class="form-control" name="nome_time" required>
+    </div>
+    <div class="form-group">
+        <label for="foto">Foto do Time:</label>
+        <input type="file" class="form-control" name="foto" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar Time</button>
+</form>
+{% endblock %}
+
+

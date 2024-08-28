@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Jogador</h2>
+<form action="{{ url_for('add_jogador') }}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" name="nome" required>
+    </div>
+    <div class="form-group">
+        <label for="posicao">Posição:</label>
+        <input type="text" class="form-control" name="posicao" required>
+    </div>
+    <div class="form-group">
+        <label for="numero">Número:</label>
+        <input type="text" class="form-control" name="numero" required>
+    </div>
+    <div class="form-group">
+        <label for="id_time">Time:</label>
+        <select class="form-control" name="id_time" required>
+            {% for time in times %}
+                <option value="{{ time.id_time }}">{{ time.nome_time }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="foto">Foto do Jogador:</label>
+        <input type="file" class="form-control" name="foto" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar Jogador</button>
+</form>
+{% endblock %}

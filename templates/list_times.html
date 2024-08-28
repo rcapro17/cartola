@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Teams List</h2>
+<div class="text-center mb-4">
+    <a href="{{ url_for('add_time') }}" class="btn btn-success">Add Team</a>
+</div>
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for time in times %}
+        <tr>
+            <td>{{ time.id_time }}</td>
+            <td>{{ time.nome_time }}</td>
+            <td><img src="{{ url_for('static', filename='uploads/' ~ time.foto) }}" alt="Team Photo" style="width: 100px;"></td>
+            <td>
+                <a href="{{ url_for('edit_time', id_time=time.id_time) }}" class="btn btn-primary">Edit</a>
+                
+                <form action="{{ url_for('delete_time', id_time=time.id_time) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+                <a href="{{ url_for('list_jogadores_time', id_time=time.id_time) }}" class="btn btn-info">Ver Jogadores</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

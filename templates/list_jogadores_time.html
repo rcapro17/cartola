@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Jogadores do Time: {{ time.nome_time }}</h2>
+
+<div class="row">
+  {% for jogador in jogadores %}
+  <div class="col-md-3 mb-4">
+    <div class="card" style="width: 18rem;">
+      <img src="{{ url_for('static', filename='uploads/' ~ jogador.foto) }}" class="card-img-top" alt="{{ jogador.nome }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ jogador.nome }}</h5>
+        <p class="card-text">
+          <strong>Posição:</strong> {{ jogador.posicao }}<br>
+          <strong>Número:</strong> {{ jogador.numero }}
+        </p>
+        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+

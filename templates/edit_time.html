@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Edit Team</h2>
+  <form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="nome_time">Team Name</label>
+      <input type="text" class="form-control" id="nome_time" name="nome_time" value="{{ time.nome_time }}" required>
+    </div>
+    <div class="form-group">
+      <label for="foto">Team Photo</label>
+      <input type="file" class="form-control-file" id="foto" name="foto">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+{% endblock %}
